@@ -9,17 +9,13 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief This file contains the implementation of the functions defined in stats.h
  *
- * <Add Extended Description Here>
- *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Javed Alam
+ * @date 19.02.2023 
  *
  */
-
-
 
 #include <stdio.h>
 #include "stats.h"
@@ -37,7 +33,28 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+  print_statistics(test, SIZE);
 
 }
 
-/* Add other Implementation File Code Here */
+void print_statistics(unsigned char *array, unsigned int size){
+
+}
+void print_array(unsigned char *array, unsigned int size){
+
+}
+unsigned char find_median(unsigned char *array, unsigned int size){
+
+}
+unsigned char find_mean(unsigned char *array, unsigned int size){
+
+}
+unsigned char find_maximum(unsigned char *array, unsigned int size){
+
+}
+unsigned char find_minimum(unsigned char *array, unsigned int size){
+
+}
+void sort_array(unsigned char *array, unsigned int size){
+
+}
