@@ -20,6 +20,10 @@
 #include <stdio.h>
 #include "stats.h"
 
+
+#include <stdio.h>
+#include "stats.h"
+
 /* Size of the Data Set */
 #define SIZE (40)
 
@@ -38,23 +42,69 @@ void main() {
 }
 
 void print_statistics(unsigned char *array, unsigned int size){
-
+    printf("Array: \n");
+    print_array(array, size);
+    printf("Median value is: %d\n", find_median(array, size));
+    printf("Mean Value is: %d\n", find_mean(array, size));
+    printf("Maximum value is: %d\n", find_maximum(array, size));
+    printf("Minimum value is: %d\n", find_minimum(array, size));
 }
-void print_array(unsigned char *array, unsigned int size){
-
+void print_array(unsigned char *array, unsigned int size)
+{
+    for(int i = 0; i < size; i++){
+        printf("Value %d ", array[i]);
+    }
+    printf("\n");
 }
-unsigned char find_median(unsigned char *array, unsigned int size){
-
+unsigned char find_median(unsigned char *array, unsigned int size)
+{
+    sort_array(array, size);
+    if(size % 2 == 0){
+        return (array[size/2] + array[size/2 - 1]) / 2;
+    }
+    else{
+        return array[size/2];
+    }
 }
-unsigned char find_mean(unsigned char *array, unsigned int size){
-
+unsigned char find_mean(unsigned char *array, unsigned int size)
+{
+    int sum = 0;
+    for(int i = 0; i < size; i++){
+        sum += array[i];
+    }
+    return sum / size;
 }
-unsigned char find_maximum(unsigned char *array, unsigned int size){
-
+unsigned char find_maximum(unsigned char *array, unsigned int size)
+{
+    unsigned char max = array[0];
+    for(int i = 1; i < size; i++){
+        if(array[i] > max){
+            max = array[i];
+        }
+    }
+    return max;
 }
-unsigned char find_minimum(unsigned char *array, unsigned int size){
 
+unsigned char find_minimum(unsigned char *array, unsigned int size)
+{
+    unsigned char min = array[0];
+    for(int i = 1; i < size; i++){
+        if(array[i] < min){
+            min = array[i];
+        }
+    }
+    return min;
 }
-void sort_array(unsigned char *array, unsigned int size){
 
+void sort_array(unsigned char *array, unsigned int size)
+{
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size - i - 1; j++){
+            if(array[j] < array[j+1]){
+                unsigned char temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
 }
